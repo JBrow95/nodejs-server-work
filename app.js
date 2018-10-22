@@ -1,14 +1,8 @@
-var http = require('http');
-var fs = require('fs');
+var express = require('express');
+var path = require('path');
 
-var server = http.createServer(function(req, res){
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  var myReadStream = fs.use(express.static(path.join(__dirname, 'public')));
-  myReadStream.pipe(res);
-});
+var app = express();
 
-server.listen(3000, '127.0.0.1');
-console.log('Listening bra')
-
-
-
+app.listen(3000, function(){
+  console.log("Yo server just started boss");
+})
