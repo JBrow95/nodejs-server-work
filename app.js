@@ -5,8 +5,11 @@ var path = require('path');
 var app = express();
 
 // Body Parser Middleware
-app.use(bodyParser.jason());
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+
+// Static Path
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res){
   res.send("Hello World");
